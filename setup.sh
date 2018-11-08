@@ -49,7 +49,7 @@ brew install autojump
 brew install peco
 
 
-cat << 'EOF' > ~/.zshrc
+cat << 'EOF' >> ~/.zshrc
 setopt auto_cd
 function chpwd() { ls }
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
