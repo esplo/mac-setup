@@ -16,6 +16,8 @@ defaults write -g InitialKeyRepeat -int 15
 ## install apps via brew
 
 brew install git
+brew install nvm
+
 brew install --cask google-chrome
 brew install --cask karabiner-elements
 brew install --cask iterm2
@@ -55,4 +57,12 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 EOF
+
+source ~/.zshrc
+nvm install node
+
