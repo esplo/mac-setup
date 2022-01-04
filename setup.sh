@@ -16,7 +16,6 @@ defaults write -g InitialKeyRepeat -int 15
 ## install apps via brew
 
 brew install git
-brew install nvm
 
 brew install --cask google-chrome
 brew install --cask karabiner-elements
@@ -58,6 +57,9 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
+## Node
+
+brew install nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
@@ -66,3 +68,18 @@ EOF
 source ~/.zshrc
 nvm install node
 
+## Python
+
+brew install asdf
+echo '. $(brew --prefix)/opt/asdf/libexec/asdf.sh' >> ~/.zshrc
+source ~/.zshrc
+
+asdf install python latest
+asdf global python latest
+# for poetry
+pip install cleo tomlkit poetry.core requests cachecontrol cachy html5lib pkginfo virtualenv lockfile
+
+asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
+asdf install poetry latest
+asdf global poetry latest
+poetry config virtualenvs.in-project true
