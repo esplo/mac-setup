@@ -1,0 +1,29 @@
+- name: change user shell to fish 
+  become: yes
+  user:
+    name: "{{ lookup('env','USER') }}"
+    shell: /opt/homebrew/bin/fish
+
+- name: install fisher
+  ansible.builtin.command: fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+
+- name: install fzf
+  ansible.builtin.command: fish -c 'fisher install jethrokuan/fzf'
+
+- name: install fzf completion
+  ansible.builtin.command: /opt/homebrew/opt/fzf/install
+
+- name: install z
+  ansible.builtin.command: fish -c 'fisher install jethrokuan/z'
+
+- name: copy ls.fish
+  copy:
+    src: ls.fish
+    dest: "~/.config/fish/functions/ls.fish"
+    mode: 0644
+
+- name: copy brew.fish
+  copy:
+    src: brew.fish
+    dest: "~/.config/fish/conf.d/brew.fish"
+    mode: 0644

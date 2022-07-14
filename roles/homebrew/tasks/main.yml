@@ -1,0 +1,19 @@
+- name: "update homebrew"
+  community.general.homebrew:
+    update_homebrew: true
+
+- name: "install brew softwares"
+  community.general.homebrew:
+    name: 
+      - ansible
+      - git
+      - jq
+      - wget
+      - fish
+      - fzf
+
+- name: set git user
+  ansible.builtin.command: git config --global user.name "esplo"
+
+- name: set git email
+  ansible.builtin.command: git config --global user.email "esplo@@users.noreply.github.com"
