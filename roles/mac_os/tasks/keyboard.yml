@@ -1,3 +1,17 @@
+- name: KeyRepeat
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: int
+    value: 10
+
+- name: InitialKeyRepeat
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: int
+    value: 10
+
 - name: NSAutomaticCapitalizationEnabled
   community.general.osx_defaults:
     domain: NSGlobalDomain
@@ -11,4 +25,10 @@
     key: NSAutomaticSpellingCorrectionEnabled
     type: bool
     value: false
-    
+
+- name: fnState
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.keyboard.fnState
+    type: bool
+    value: true
