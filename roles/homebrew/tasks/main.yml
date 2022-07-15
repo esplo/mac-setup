@@ -16,4 +16,4 @@
   ansible.builtin.command: git config --global user.name "esplo"
 
 - name: set git email
-  ansible.builtin.command: git config --global user.email "esplo@@users.noreply.github.com"
+  ansible.builtin.command: git config --global user.email "esplo@users.noreply.github.com"
