@@ -88,5 +88,8 @@
 - name: killall SystemUIServer
   ansible.builtin.command: killall SystemUIServer
 
-- include: dock.yml
-- include: keyboard.yml
+- name: import dock.yml
+  import_tasks: dock.yml
+
+- name: import keyboard.yml
+  import_tasks: keyboard.yml

@@ -1,0 +1,33 @@
+- name: asdf git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/asdf-vm/asdf.git'
+    dest: "~/.asdf"
+
+- name: copy asdf.fish
+  copy:
+    src: asdf.fish
+    dest: "~/.config/fish/conf.d/asdf.fish"
+    mode: 0644
+
+- name: Creates asdf directory
+  file:
+    path: ~/.config/fish/completions
+    state: directory
+
+- name: Create asdf symbolic link
+  ansible.builtin.file:
+    src: ~/.asdf/completions/asdf.fish
+    dest: ~/.config/fish/completions/asdf.fish
+    state: link
+
+# nodejs
+
+- name: asdf plugin add nodejs
+  ansible.builtin.command: asdf plugin add nodejs
+  ignore_errors: yes
+
+- name: asdf install nodejs
+  ansible.builtin.command: asdf install nodejs lts
+
+- name: asdf global nodejs
+  ansible.builtin.command: asdf global nodejs lts

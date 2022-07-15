@@ -28,19 +28,5 @@
     dest: "~/.config/fish/conf.d/brew.fish"
     mode: 0644
 
-# fish asdf
-
-- name: git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  ansible.builtin.command: git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-
-- name: copy asdf.fish
-  copy:
-    src: asdf.fish
-    dest: "~/.config/fish/conf.d/asdf.fish"
-    mode: 0644
-
-- name: mkdir -p ~/.config/fish/completions
-  ansible.builtin.command: mkdir -p ~/.config/fish/completions
-
-- name: ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-  ansible.builtin.command: ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+- name: import asdf.yml
+  import_tasks: asdf.yml
