@@ -31,3 +31,12 @@
 
 - name: asdf global nodejs
   ansible.builtin.command: asdf global nodejs lts
+
+- name: corepack
+  ansible.builtin.command: npm i --location=global corepack
+
+- name: uninstall package managers
+  ansible.builtin.command: npm uninstall -g yarn pnpm
+
+- name: pnpm
+  ansible.builtin.command: corepack enable pnpm
