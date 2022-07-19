@@ -3,7 +3,7 @@
     domain: NSGlobalDomain
     key: KeyRepeat
     type: int
-    value: 10
+    value: 3
 
 - name: InitialKeyRepeat
   community.general.osx_defaults:

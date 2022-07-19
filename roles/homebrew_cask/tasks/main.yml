@@ -12,6 +12,7 @@
       - visual-studio-code
       - wavebox
       - clipy
+      - aws-vault
   
 - name: copy Karabiner settings
   copy:

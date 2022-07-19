@@ -11,6 +11,7 @@
       - wget
       - fish
       - fzf
+      - awscli
 
 - name: set git user
   ansible.builtin.command: git config --global user.name "esplo"
