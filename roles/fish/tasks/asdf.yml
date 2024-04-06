@@ -24,19 +24,20 @@
 
 - name: asdf plugin add nodejs
   ansible.builtin.command: asdf plugin add nodejs
-  ignore_errors: yes
+
+- ansible.builtin.command: asdf plugin update nodejs
 
 - name: asdf install nodejs
-  ansible.builtin.command: asdf install nodejs lts
+  ansible.builtin.command: asdf install nodejs latest
 
 - name: asdf global nodejs
-  ansible.builtin.command: asdf global nodejs lts
+  ansible.builtin.command: asdf global nodejs latest
 
 - name: corepack
-  ansible.builtin.command: npm i --location=global corepack
+  ansible.builtin.command: ~/.asdf/shims/npm i --location=global corepack
 
 - name: uninstall package managers
-  ansible.builtin.command: npm uninstall -g yarn pnpm
+  ansible.builtin.command: ~/.asdf/shims/npm uninstall -g yarn pnpm
 
 - name: pnpm
-  ansible.builtin.command: corepack enable pnpm
+  ansible.builtin.command: ~/.asdf/shims/corepack enable pnpm

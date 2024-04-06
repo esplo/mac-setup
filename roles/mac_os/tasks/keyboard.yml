@@ -10,7 +10,7 @@
     domain: NSGlobalDomain
     key: InitialKeyRepeat
     type: int
-    value: 10
+    value: 5
 
 - name: NSAutomaticCapitalizationEnabled
   community.general.osx_defaults:

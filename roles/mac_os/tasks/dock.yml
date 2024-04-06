@@ -23,14 +23,14 @@
   community.general.osx_defaults:
     domain: com.apple.dock
     key: tilesize
-    type: int
+    type: float
     value: 32
 
 - name: largesize
   community.general.osx_defaults:
     domain: com.apple.dock
     key: largesize
-    type: int
+    type: float
     value: 64
 
 - name: magnification

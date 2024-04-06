@@ -2,7 +2,6 @@
   community.general.homebrew_cask: 
     name: 
       - alfred
-      - discord
       - docker
       - dropbox
       - google-chrome
@@ -13,7 +12,14 @@
       - wavebox
       - clipy
       - aws-vault
+      - bluesnooze
   
+- name: Karabiner directory created
+  file:
+    path: "~/.config/karabiner"
+    state: directory
+    mode: 0775
+
 - name: copy Karabiner settings
   copy:
     src: karabiner.json
