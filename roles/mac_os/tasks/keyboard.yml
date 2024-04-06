@@ -3,14 +3,14 @@
     domain: NSGlobalDomain
     key: KeyRepeat
     type: int
-    value: 3
+    value: 10
 
 - name: InitialKeyRepeat
   community.general.osx_defaults:
     domain: NSGlobalDomain
     key: InitialKeyRepeat
     type: int
-    value: 5
+    value: 20
 
 - name: NSAutomaticCapitalizationEnabled
   community.general.osx_defaults:
@@ -32,3 +32,10 @@
     key: com.apple.keyboard.fnState
     type: bool
     value: true
+
+- name: ApplePressAndHoldEnabled
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
