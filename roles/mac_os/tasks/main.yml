@@ -5,19 +5,26 @@
     type: int
     value: 1
 
+- community.general.osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    state: absent
 - name: AppleShowAllFiles
   community.general.osx_defaults:
     domain: com.apple.finder
     key: AppleShowAllFiles
-    type: string
-    value: "TRUE"
+    type: bool
+    value: true
 
-- name: AppleShowAllExtensions
-  community.general.osx_defaults:
+- community.general.osx_defaults:
     domain: NSGlobalDomain
     key: AppleShowAllExtensions
-    type: string
-    value: "TRUE"
+    state: absent
+- community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
 
 - name: NSTableViewDefaultSizeMode
   community.general.osx_defaults:
@@ -61,14 +68,14 @@
     type: bool
     value: true
 
-- name: killall Finder
-  ansible.builtin.command: killall Finder
-
-- name: killall SystemUIServer
-  ansible.builtin.command: killall SystemUIServer
-
 - name: import dock.yml
   import_tasks: dock.yml
 
 - name: import keyboard.yml
   import_tasks: keyboard.yml
+
+- name: killall Finder
+  ansible.builtin.command: killall Finder
+
+- name: killall SystemUIServer
+  ansible.builtin.command: killall SystemUIServer
