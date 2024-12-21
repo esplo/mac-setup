@@ -2,7 +2,8 @@
 - name: set up
   hosts: 127.0.0.1
   connection: local
-  gather_facts: no
+  # gather_factsをするため、PATHの上書きは行えない
+  gather_facts: yes
   become: no
 
   roles:

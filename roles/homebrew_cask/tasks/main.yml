@@ -2,7 +2,6 @@
   community.general.homebrew_cask: 
     name: 
       - alfred
-      - discord
       - docker
       - dropbox
       - google-chrome
@@ -12,11 +11,17 @@
       - visual-studio-code
       - wavebox
       - clipy
-      - aws-vault
-  ignore_errors: yes  # skip already installed
+      - bluesnooze
+  
+# - name: Karabiner directory created
+#   file:
+#     path: "~/.config/karabiner"
+#     state: directory
+#     mode: 0775
 
 # - name: copy Karabiner settings
 #   copy:
 #     src: karabiner.json
 #     dest: "~/.config/karabiner/karabiner.json"
 #     mode: 0500
+

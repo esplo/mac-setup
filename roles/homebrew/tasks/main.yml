@@ -1,3 +1,13 @@
+- name: install rosetta
+  shell: softwareupdate --install-rosetta --agree-to-license
+
+- name: "do sudo command for homebrew's sudo without password"
+  shell: sudo ls
+
+- name: "install homebrew"
+  shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  become: no
+
 - name: "update homebrew"
   community.general.homebrew:
     update_homebrew: true
@@ -16,6 +26,12 @@
       - coreutils
       - curl
       - asdf
+      - nodenv
+      - node-build
+
+- name: "upgrade all packages"
+  community.general.homebrew:
+    upgrade_all: true
 
 - name: set git user
   ansible.builtin.command: git config --global user.name "esplo"

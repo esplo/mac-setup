@@ -1,12 +1,20 @@
-- name: KeyRepeat
-  community.general.osx_defaults:
+## 別の型で設定されているとエラーになるので一度消す
+
+- community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    state: absent
+- community.general.osx_defaults:
     domain: NSGlobalDomain
     key: KeyRepeat
     type: int
-    value: 3
+    value: 5
 
-- name: InitialKeyRepeat
-  community.general.osx_defaults:
+- community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    state: absent
+- community.general.osx_defaults:
     domain: NSGlobalDomain
     key: InitialKeyRepeat
     type: int
@@ -32,3 +40,10 @@
     key: com.apple.keyboard.fnState
     type: bool
     value: true
+
+- name: ApplePressAndHoldEnabled
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false

@@ -6,15 +6,23 @@
 
 - name: install fisher
   ansible.builtin.command: fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+  environment:
+    PATH: "/opt/homebrew/bin/:{{ ansible_env.PATH }}"
 
 - name: install fzf
   ansible.builtin.command: fish -c 'fisher install jethrokuan/fzf'
+  environment:
+    PATH: "/opt/homebrew/bin/:{{ ansible_env.PATH }}"
 
 - name: install fzf completion
   ansible.builtin.command: /opt/homebrew/opt/fzf/install
+  environment:
+    PATH: "/opt/homebrew/bin/:{{ ansible_env.PATH }}"
 
 - name: install z
   ansible.builtin.command: fish -c 'fisher install jethrokuan/z'
+  environment:
+    PATH: "/opt/homebrew/bin/:{{ ansible_env.PATH }}"
 
 - name: copy ls.fish
   copy:
@@ -42,3 +50,6 @@
 
 - name: import asdf.yml
   import_tasks: asdf.yml
+  environment:
+    PATH: "/opt/homebrew/bin/:{{ ansible_env.PATH }}"
+    
