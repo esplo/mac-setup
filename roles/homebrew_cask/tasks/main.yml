@@ -8,14 +8,15 @@
       - google-chrome
       - google-japanese-ime
       - iterm2
-      - karabiner-elements
+      # - karabiner-elements
       - visual-studio-code
       - wavebox
       - clipy
       - aws-vault
-  
-- name: copy Karabiner settings
-  copy:
-    src: karabiner.json
-    dest: "~/.config/karabiner/karabiner.json"
-    mode: 0500
+  ignore_errors: yes  # skip already installed
+
+# - name: copy Karabiner settings
+#   copy:
+#     src: karabiner.json
+#     dest: "~/.config/karabiner/karabiner.json"
+#     mode: 0500

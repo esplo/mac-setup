@@ -12,7 +12,10 @@
       - fish
       - fzf
       - awscli
-      - bluesnooze
+      # - bluesnooze
+      - coreutils
+      - curl
+      - asdf
 
 - name: set git user
   ansible.builtin.command: git config --global user.name "esplo"

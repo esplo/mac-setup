@@ -1,1 +1,1 @@
-source ~/.asdf/asdf.fish
+source "/opt/homebrew/opt/asdf/libexec/asdf.fish"

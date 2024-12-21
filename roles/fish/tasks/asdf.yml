@@ -1,24 +1,8 @@
-- name: asdf git checkout
-  ansible.builtin.git:
-    repo: 'https://github.com/asdf-vm/asdf.git'
-    dest: "~/.asdf"
-
 - name: copy asdf.fish
   copy:
     src: asdf.fish
     dest: "~/.config/fish/conf.d/asdf.fish"
     mode: 0644
-
-- name: Creates asdf directory
-  file:
-    path: ~/.config/fish/completions
-    state: directory
-
-- name: Create asdf symbolic link
-  ansible.builtin.file:
-    src: ~/.asdf/completions/asdf.fish
-    dest: ~/.config/fish/completions/asdf.fish
-    state: link
 
 # nodejs
 
@@ -27,16 +11,32 @@
   ignore_errors: yes
 
 - name: asdf install nodejs
-  ansible.builtin.command: asdf install nodejs lts
+  ansible.builtin.command: asdf install nodejs latest
 
 - name: asdf global nodejs
-  ansible.builtin.command: asdf global nodejs lts
+  ansible.builtin.command: asdf global nodejs latest
+
+- name: asdf reshim nodejs
+  ansible.builtin.command: asdf reshim nodejs
 
 - name: corepack
-  ansible.builtin.command: npm i --location=global corepack
+  ansible.builtin.shell: npm i --location=global corepack
 
 - name: uninstall package managers
-  ansible.builtin.command: npm uninstall -g yarn pnpm
+  ansible.builtin.shell: npm uninstall -g yarn pnpm
 
 - name: pnpm
-  ansible.builtin.command: corepack enable pnpm
+  ansible.builtin.shell: corepack enable pnpm
+
+# python
+
+- name: asdf plugin add python
+  ansible.builtin.command: asdf plugin add python
+  ignore_errors: yes
+
+- name: asdf install python
+  ansible.builtin.command: asdf install python latest
+
+- name: asdf global python
+  ansible.builtin.command: asdf global python latest
+  

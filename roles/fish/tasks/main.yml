@@ -22,6 +22,18 @@
     dest: "~/.config/fish/functions/ls.fish"
     mode: 0644
 
+- name: copy npm.fish
+  copy:
+    src: npm.fish
+    dest: "~/.config/fish/functions/npm.fish"
+    mode: 0644
+
+- name: copy pnpm.fish
+  copy:
+    src: pnpm.fish
+    dest: "~/.config/fish/functions/pnpm.fish"
+    mode: 0644
+
 - name: copy brew.fish
   copy:
     src: brew.fish
